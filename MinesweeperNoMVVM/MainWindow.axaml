@@ -1,0 +1,120 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MinesweeperNoMVVM.MainWindow"
+        Title="MinesweeperNoMVVM">
+    
+    <Window.Styles>
+        <Style Selector="Button.mine-cell">
+            <Setter Property="Content" Value="   "></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderThickness" Value="0.75"></Setter>
+            <Setter Property="BorderBrush" Value="Azure"></Setter>
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        </Style>
+        
+    </Window.Styles>
+    
+    <Grid
+        x:Name="MainWindowLayout"
+        RowDefinitions="100,4*">
+        
+        
+        <StackPanel 
+            Grid.Row="0"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Spacing="10"
+            VerticalAlignment="Center">
+            
+            <Button
+                x:Name="BtnStartGame"
+                Content="Start Game"
+                Margin="20"
+                Click="BtnStartGame_OnClick">
+            </Button>
+            
+            <StackPanel
+                Orientation="Vertical"
+                Margin="20">
+                
+                <ComboBox
+                    x:Name="CbGameBoardSize"
+                    PlaceholderText="Select Size"
+                    >
+                
+                    <ComboBoxItem Content="Small"/>
+                    <ComboBoxItem Content="Medium"/>
+                    <ComboBoxItem Content="Large"/>
+                
+                </ComboBox>
+                
+                <TextBlock
+                    x:Name="TbSizeWarning"
+                    Text="Please select size!"
+                    Foreground="Red"
+                    FontWeight="Bold"
+                    IsVisible="False">
+                </TextBlock>
+                
+            </StackPanel>
+            
+            
+            <StackPanel
+                Orientation="Vertical"
+                Margin="20">
+                
+                <ComboBox
+                    x:Name="CbDifficultySelector"
+                    PlaceholderText="Select Difficulty">
+                
+                    <ComboBoxItem Content="Easy"/>
+                    <ComboBoxItem Content="Medium"/>
+                    <ComboBoxItem Content="Hard"/>
+                
+                </ComboBox>
+                
+                <TextBlock
+                    x:Name="TbDifficultySelectorWarning"
+                    Text="Please select difficulty!"
+                    Foreground="Red"
+                    FontWeight="Bold"
+                    IsVisible="False">
+                </TextBlock>
+                
+            </StackPanel>
+            
+            
+            <StackPanel
+                Orientation="Vertical"
+                Margin="20">
+                
+                <TextBlock
+                    x:Name="TbWinLoseText"
+                    Text=""
+                    FontWeight="Bold"
+                    IsVisible="False">
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
+        <Viewbox
+            Grid.Row="1">
+            
+            <UniformGrid
+                Margin="20"
+                x:Name="UgGameBoardHolder">
+            </UniformGrid>    
+            
+        </Viewbox>
+        
+        
+        
+        
+    </Grid>
+    
+</Window>
