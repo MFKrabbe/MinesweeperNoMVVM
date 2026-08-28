@@ -7,15 +7,7 @@ using MinesweeperNoMVVM.Models;
 
 namespace MinesweeperNoMVVM;
 
-/*
- todo
- Timer
- Victory condition
- Font fix
- Small medium large board
- Difficulty check
- CleanUp
- */
+
 public partial class MainWindow : Window
 {
     private GameBoard _gameBoard;
@@ -62,8 +54,14 @@ public partial class MainWindow : Window
         }
     }
     
-
     private void GetGameParameters()
+    {
+        GetGameSize();
+        GetGameDifficulty();
+    }
+    
+    
+    private void GetGameSize()
     {
         if (CbGameBoardSize.SelectionBoxItem != null)
         {
@@ -91,9 +89,10 @@ public partial class MainWindow : Window
             return;
         }
         TbSizeWarning.IsVisible = false;
-
-       
-
+    }
+    
+    private void GetGameDifficulty()
+    {
         if (CbDifficultySelector.SelectionBoxItem != null)
         {
             switch (CbDifficultySelector.Text)
@@ -116,9 +115,8 @@ public partial class MainWindow : Window
             TbDifficultySelectorWarning.IsVisible = true;
             return;
         }
-        TbDifficultySelectorWarning.IsVisible = false;
+        TbDifficultySelectorWarning.IsVisible = false;   
     }
-
 
     private void SetUpGame()
     {
@@ -222,4 +220,5 @@ public partial class MainWindow : Window
         TbWinLoseText.IsVisible = true;
         TbWinLoseText.Foreground = Brushes.Red;
     }
+    
 }

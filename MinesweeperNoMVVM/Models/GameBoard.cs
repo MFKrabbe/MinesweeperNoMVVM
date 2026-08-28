@@ -18,20 +18,18 @@ public enum Size
 
 public class GameBoard
 {
-    private Random _rdom = new Random();
-    public int GameBoardColumns { get; set; }
-    public int GameBoardRows { get; set; }
-
-    public bool HasWon { get; set; }
-    
-    public int RevealedSafeCells { get; set; }
-    public int MinesSpawned { get; set; }
+    public int GameBoardColumns { get;}
+    public int GameBoardRows { get;}
+    public int MinesSpawned { get; private set; }
+    public bool HasWon { get; private set; }
+    public Cell[,] MineField { get; private set; }
+    private int RevealedSafeCells { get; set; }
     private int SafeCells { get; set; }
-    private Difficulty Difficulty {get; set;}
+    private Difficulty Difficulty {get;}
     
-    internal Cell[,] MineField { get; set; } //Can be set to private later
-
-
+    private Random _rdom = new Random();
+    
+    
     public GameBoard(Size size, Difficulty difficulty)
     {
         GameBoardColumns = (int)size;
